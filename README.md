@@ -1,2 +1,2 @@
 # paperblack
-A dark Paper theme for Poi
+Another dark Paper theme for Poi
