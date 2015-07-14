@@ -1,2 +1,4 @@
 # paperblack
 Another dark Paper theme for Poi
+
+![screenshot](https://raw.githubusercontent.com/PHELiOX/paperblack/master/paperblack效果图.png)
