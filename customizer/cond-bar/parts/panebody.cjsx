@@ -17,7 +17,7 @@ getMaterialStyle = (percent) ->
 
 getCondStyle = (cond) ->
   if cond > 84
-    '#FFDE00'
+    '#FFE924'
   else if cond > 49
     '#FFCF00'
   else if cond < 20
@@ -70,7 +70,6 @@ getMaterialStyleData = (percent) ->
     color: '#FFFF00'
   else
     null
-
 
 getDeckMessage = (deck) ->
   {$ships, $slotitems, _ships} = window
@@ -175,7 +174,9 @@ TopAlert = React.createClass
         cond = @cond.map (c) => if c < 49 then Math.min(49, c + @timeDelta / 60) else c
         @props.updateCond(cond)
       if @maxCountdown is @timeDelta and not @inBattle and window._decks[@props.deckIndex].api_mission[0] <= 0
-        notify "#{@props.deckName} 疲劳回复完成", {icon: join(ROOT, 'assets', 'img', 'operation', 'sortie.png')}
+        notify "#{@props.deckName} 疲劳回复完成",
+          type: 'morale'
+          icon: join(ROOT, 'assets', 'img', 'operation', 'sortie.png')
     if flag or @inBattle
       @interval = clearInterval @interval
       @clearCountdown()
@@ -193,16 +194,16 @@ TopAlert = React.createClass
     @interval = clearInterval @interval if @interval?
   render: ->
     <Alert style={getFontStyle window.theme}>
-      <div style={display:"flex"}>
-        <span style={flex:1}>总 Lv.{@messages[0]}</span>
-        <span style={flex:1}>均 Lv.{@messages[1]}</span>
-        <span style={flex:1}>制空:&nbsp;{@messages[2]}</span>
-        <span style={flex:1}>
+      <div style={display: "flex"}>
+        <span style={flex: 1}>总 Lv.{@messages[0]}</span>
+        <span style={flex: 1}>均 Lv.{@messages[1]}</span>
+        <span style={flex: 1}>制空:&nbsp;{@messages[2]}</span>
+        <span style={flex: 1}>
           <OverlayTrigger placement='bottom' overlay={<Tooltip>[艦娘]{@messages[4]} + [装備]{@messages[5]} - [司令部]{@messages[6]}</Tooltip>}>
             <span>索敌:&nbsp;{@messages[3]}</span>
           </OverlayTrigger>
         </span>
-        <span style={flex:1.5}>回复:&nbsp;<span id={"deck-condition-countdown-#{@props.deckIndex}-#{@componentId}"}>{resolveTime @maxCountdown}</span></span>
+        <span style={flex: 1.5}>回复:&nbsp;<span id={"deck-condition-countdown-#{@props.deckIndex}-#{@componentId}"}>{resolveTime @maxCountdown}</span></span>
       </div>
     </Alert>
 
@@ -277,10 +278,12 @@ PaneBody = React.createClass
                   <div className="shipName">
                     {shipInfo.api_name}
                   </div>
-                  <OverlayTrigger placement='right' overlay={<Tooltip>Cond. {@state.cond[j]}</Tooltip>}>
-                    <ProgressBar key={2} className="condProgress" id="condProgress-#{@props.deckIndex}-#{j}" style={flex: 1}
-                             now={@state.cond[j]} />
-                  </OverlayTrigger>
+                  <span style={display: "flex"}>
+                    <span className="condText" >{@state.cond[j]}</span>
+                    <OverlayTrigger placement='right' overlay={<Tooltip>Cond. {@state.cond[j]}</Tooltip>} >
+                      <ProgressBar key={2} className="condProgress" id="condProgress-#{@props.deckIndex}-#{j}" now={@state.cond[j]} />
+                    </OverlayTrigger>
+                  </span>
                 </div>
               </div>
               <div className="shipHp" >

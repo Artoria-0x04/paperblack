@@ -81,6 +81,15 @@
   vertical-align: middle;
   margin-left: 4px;
 }
+#ShipView .shipDetails .condText {
+  font-size: 60%;
+  margin-right: 4px;
+  flex: none;
+  line-height: 1;
+}
+#ShipView .shipDetails .condProgress {
+  width: 60%;
+}
 #ShipView .shipDetails .condProgress .progress-bar {
 
 }
@@ -90,7 +99,7 @@
 }
 
 #ShipView .shipDetails .shipItem .shipHp{
-  flex: auto;
+  flex: 2;
   display: flex;
   flex-direction: column;
   margin-left: 4px;
