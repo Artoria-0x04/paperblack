@@ -1,0 +1,193 @@
+#ShipView{
+  font-size: 13px;
+}
+#ShipView .btn-group {
+  display: flex;
+  width: 100%;
+  padding-left: 5px;
+  padding-right: 5px;
+  /*padding-top: 5px;*/
+}
+#ShipView .btn-group .btn {
+  flex: 1;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+#ShipView .hidden {
+  display: none;
+}
+#ShipView .show {
+  display: block;
+}
+#ShipView .deckStatus {
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+}
+#ShipView .shipDetails {
+  margin-bottom: 1px;
+}
+#ShipView .shipDetails .shipItem {
+  margin-top: 8px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  white-space: nowrap;
+}
+#ShipView .shipDetails .shipItem .progress {
+  margin-bottom: 5px;
+}
+#ShipView .shipDetails .shipItem .shipInfo {
+  flex: 2;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+#ShipView .shipDetails .shipItem .shipInfo .shipBasic {
+  flex; 1;
+  font-size: 80%;
+  vertical-align: bottom;
+  padding-top: 0px;
+}
+#ShipView .shipDetails .shipItem .shipInfo .shipLv {
+
+}
+#ShipView .shipDetails .shipItem .shipInfo .shipType {
+  margin-left: 5px;
+}
+#ShipView .shipDetails .shipItem .shipInfo .shipName {
+  flex: 1;
+  font-size: 120%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#ShipView .shipDetails .shipItem .shipInfo .expProgess {
+  flex: 1;
+}
+
+#ShipView .shipDetails .shipItem .shipCond {
+  flex: none;
+  margin-left: -6px;
+  margin-right: 4px;
+  margin-bottom: 5px;
+  width: 32px;
+  text-align: right;
+}
+#ShipView .shipDetails .shipItem .shipCond .condIndicator {
+  display: inline-block;
+  height: 30px;
+  width: 4px;
+  vertical-align: middle;
+  margin-left: 4px;
+}
+#ShipView .shipDetails .condProgress .progress-bar {
+
+}
+#ShipView .shipDetails .condProgress .progress-bar:last-child:before {
+  content: attr(data-content);
+  background-color: #292929;
+}
+
+#ShipView .shipDetails .shipItem .shipHp{
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+#ShipView .hp-progress {
+  /*border-radius: 0px;*/
+  background-color: inherit;
+  vertical-align: bottom;
+}
+#ShipView .hp-progress .progress {
+  height: 6px;
+}
+#ShipView .hp-progress .progress .progress-bar {
+  font-size: 11px;
+  line-height: 0.9;
+  /*color: #666;*/
+}
+#ShipView .hp-progress .progress {
+  position: relative;
+  margin-bottom: 1px;
+}
+#ShipView .hp-progress .progress-bar span span {
+  position: absolute;
+  width: 100%;
+  display: block;
+}
+#ShipView .shipDetails .shipItem .progress .progress-condition{
+
+}
+
+#ShipView .shipDetails .shipItem .shipFB{
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+#ShipView .material-progress {
+  vertical-align: top;
+}
+#ShipView .material-progress .progress {
+  margin-bottom: 1px;
+  height: 6px;
+  position: relative;
+}
+#ShipView .material-progress .progress .progress-bar {
+  font-size: 9px;
+  line-height: 1.1;
+  /*color: #666;*/
+}
+#ShipView .material-progress .progress .progress-bar span span {
+  position: absolute;
+  width: 100%;
+  display: block;
+}
+#ShipView .material-progress .col-xs-6 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#ShipView .shipDetails .shipItem .shipSlot{
+  width: 105px;
+  flex: none;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-bottom: 3px;
+}
+#ShipView .slotitem-container {
+  position: relative;
+  vertical-align: bottom;
+  display: inline;
+}
+#ShipView .slotitem-container .slotitem-onslot {
+  position: absolute;
+  font-size: 9px;
+  left: -1px;
+  top: -9px;
+}
+#ShipView .slotitem-container span.slotitem-onslot.label{
+  padding: 2px 2px;
+}
+#ShipView .slotitem-container span.show {
+  display: inline !important;
+}
+#ShipView .slotitem-container img {
+  width: 30px;
+  height: 30px;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  margin-left: -3px;
+}
+
+
+#ShipView .alert {
+  background-color: transparent;
+  border-color: transparent;
+  margin-top: 9px;
+  text-align: center;
+}
