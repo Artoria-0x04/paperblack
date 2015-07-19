@@ -5,5 +5,9 @@ Another dark Paper theme for Poi
 
 ===
 
+# Now with new ship panel style! [Condition-Bar]
+
+![screenshot](https://github.com/PHELiOX/paperblack/raw/master/condbar.png)
+
 # Customizer
 Another 2 ship panel style for v3.0
