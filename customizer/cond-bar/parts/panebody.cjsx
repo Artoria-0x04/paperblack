@@ -3,7 +3,7 @@
 {Table, ProgressBar, OverlayTrigger, Tooltip, Grid, Col, Alert, Row} = ReactBootstrap
 
 Slotitems = require './slotitems'
-
+CondBar = require './condbar'
 
 getMaterialStyle = (percent) ->
   if percent <= 50
@@ -17,7 +17,7 @@ getMaterialStyle = (percent) ->
 
 getCondStyle = (cond) ->
   if cond > 84
-    '#FFE924'
+    '#FFFD24'
   else if cond > 49
     '#FFCF00'
   else if cond < 20
@@ -230,10 +230,6 @@ PaneBody = React.createClass
         cond[j] = ship.api_cond
       @setState
         cond: cond
-  componentDidUpdate: (prevProps, prevState) ->
-    for shipId, j in @props.deck.api_ship
-      continue if shipId == -1
-      $("#ShipView #condProgress-#{@props.deckIndex}-#{j}.progress-bar").style.backgroundColor = getCondStyle @state.cond[j]
   componentWillMount: ->
     cond = [0, 0, 0, 0, 0, 0]
     for shipId, j in @props.deck.api_ship
@@ -244,10 +240,6 @@ PaneBody = React.createClass
       cond[j] = ship.api_cond
     @setState
       cond: cond
-  componentDidMount: ->
-    for shipId, j in @props.deck.api_ship
-      continue if shipId == -1
-      $("#ShipView #condProgress-#{@props.deckIndex}-#{j}.progress-bar").style.backgroundColor = getCondStyle @state.cond[j]
   render: ->
     <div>
       <TopAlert
@@ -278,12 +270,12 @@ PaneBody = React.createClass
                   <div className="shipName">
                     {shipInfo.api_name}
                   </div>
-                  <span style={display: "flex"}>
-                    <span className="condText" >{@state.cond[j]}</span>
-                    <OverlayTrigger placement='right' overlay={<Tooltip>Cond. {@state.cond[j]}</Tooltip>} >
-                      <ProgressBar key={2} className="condProgress" id="condProgress-#{@props.deckIndex}-#{j}" now={@state.cond[j]} />
-                    </OverlayTrigger>
-                  </span>
+                  <CondBar
+                    j={j}
+                    deck={@props.deck}
+                    deckIndex = {@props.deckIndex}
+                    cond = {@state.cond}
+                    />
                 </div>
               </div>
               <div className="shipHp" >
@@ -292,13 +284,11 @@ PaneBody = React.createClass
                 </div>
                 <ProgressBar style={flex: 1} bsStyle={getHpStyle ship.api_nowhp / ship.api_maxhp * 100}
                            now={ship.api_nowhp / ship.api_maxhp * 100} />
-                <ProgressBar>
-                  <OverlayTrigger placement='right' overlay={<Tooltip>Next. {ship.api_exp[1]}</Tooltip>}>
-                    <div className="expProgress">
-                      <ProgressBar bsStyle="info" now={ship.api_exp[2]} />
-                    </div>
-                  </OverlayTrigger>
-                </ProgressBar>
+                <OverlayTrigger placement='right' overlay={<Tooltip>Next. {ship.api_exp[1]}</Tooltip>}>
+                  <div className="expProgress">
+                    <ProgressBar bsStyle="info" now={ship.api_exp[2]} />
+                  </div>
+                </OverlayTrigger>
               </div>
               <span className="shipFB" >
                 <span style={flex: 1}>
