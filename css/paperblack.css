@@ -7049,6 +7049,11 @@ a {
 label {
   font-weight: normal;
 }
+.label {
+  display: inline-block;
+  line-height: 1;
+  padding: 4px 4px;
+}
 textarea,
 textarea.form-control,
 input.form-control,
@@ -7542,10 +7547,6 @@ input[type="checkbox"]:disabled:checked:after,
 .carousel-caption h5,
 .carousel-caption h6 {
   color: inherit;
-}
-.label {
-  line-height: inherit;
-  padding: 3px 5px;
 }
 .pagination {
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);

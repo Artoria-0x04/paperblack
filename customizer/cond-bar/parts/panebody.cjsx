@@ -1,9 +1,10 @@
 {relative, join} = require 'path-extra'
 {$, $$, _, React, ReactBootstrap, resolveTime, notify} = window
-{Table, ProgressBar, OverlayTrigger, Tooltip, Grid, Col, Alert, Row} = ReactBootstrap
+{ProgressBar, OverlayTrigger, Tooltip, Alert, Overlay, Label} = ReactBootstrap
 
 Slotitems = require './slotitems'
 CondBar = require './condbar'
+StatusLabel = require './statuslabel'
 
 getMaterialStyle = (percent) ->
   if percent <= 50
@@ -71,6 +72,28 @@ getMaterialStyleData = (percent) ->
   else
     null
 
+getStatusStyle = (status) ->
+  flag = status.reduce (a, b) -> a or b
+  if flag? and flag
+    return {opacity: 0.65}
+  else
+    return {}
+    # $("#ShipView #shipInfo").style.opacity = 0.4
+
+getStatusArray = (shipId) ->
+  status = []
+  # retreat status
+  status[0] = false
+  # reparing
+  status[1] = if shipId in _ndocks then true else false
+  # special 1
+  status[2] = false
+  # special 2
+  status[3] = false
+  # special 3
+  status[4] = false
+  return status
+
 getDeckMessage = (deck) ->
   {$ships, $slotitems, _ships} = window
   totalLv = totalShip = totalTyku = totalSaku = shipSaku = itemSaku = teitokuSaku = 0
@@ -124,36 +147,89 @@ TopAlert = React.createClass
   messages: ['没有舰队信息']
   countdown: [0, 0, 0, 0, 0, 0]
   maxCountdown: 0
+  missionCountdown: 0
+  completeTime: 0
   timeDelta: 0
   cond: [0, 0, 0, 0, 0, 0]
   isMount: false
   inBattle: false
+  getInitialState: ->
+    inMission: false
   handleResponse: (e) ->
     {method, path, body, postBody} = e.detail
     refreshFlag = false
     switch path
       when '/kcsapi/api_port/port'
+        if @props.deckIndex != 0
+          deck = body.api_deck_port[@props.deckIndex]
+          @missionCountdown = -1
+          switch deck.api_mission[0]
+            # In port
+            when 0
+              @missionCountdown = -1
+              @completeTime = -1
+            # In mission
+            when 1
+              @completeTime = deck.api_mission[2]
+              @missionCountdown = Math.floor((deck.api_mission[2] - new Date()) / 1000)
+            # Just come back
+            when 2
+              @completeTime = 0
+              @missionCountdown = 0
         @inBattle = false
         refreshFlag = true
+      when '/kcsapi/api_req_mission/start'
+        # postBody.api_deck_id is a string starting from 1
+        if postBody.api_deck_id == "#{@props.deckIndex + 1}"
+          @completeTime = body.api_complatetime
+          @missionCountdown = Math.floor((body.api_complatetime - new Date()) / 1000)
+          @inBattle = false
+          refreshFlag = true
+      when '/kcsapi/api_req_mission/return_instruction'
+        if postBody.api_deck_id == @props.deckIndex
+          @completeTime = body.api_mission[2]
+          @missionCountdown = Math.floor((body.api_mission[2] - new Date()) / 1000)
+          @inBattle = false
+          refreshFlag = true
       when '/kcsapi/api_req_map/start'
         @inBattle = true
       when '/kcsapi/api_get_member/deck', '/kcsapi/api_get_member/ship_deck', '/kcsapi/api_get_member/ship2', '/kcsapi/api_get_member/ship3'
         refreshFlag = true
-      when '/kcsapi/api_req_hensei/change', '/kcsapi/api_req_kaisou/powerup', '/kcsapi/api_req_kousyou/destroyship'
+      when '/kcsapi/api_req_hensei/change', '/kcsapi/api_req_kaisou/powerup', '/kcsapi/api_req_kousyou/destroyship', '/kcsapi/api_req_nyukyo/start'
         refreshFlag = true
     if refreshFlag
       @setAlert()
+  getState: ->
+    if @state.inMission
+      return '远征'
+    else
+      return '回复'
   setAlert: ->
     decks = window._decks
     @messages = getDeckMessage decks[@props.deckIndex]
     tmp = getCondCountdown decks[@props.deckIndex]
-    @maxCountdown = tmp.countdown.reduce (a, b) -> Math.max a, b    # new countdown
-    @countdown = tmp.countdown
-    minCond = tmp.cond.reduce (a, b) -> Math.min a, b               # new cond
-    thisMinCond = @cond.reduce (a, b) -> Math.min a, b              # current cond
-    if thisMinCond isnt minCond
+    @missionCountdown = Math.max(0, Math.floor((@completeTime - new Date()) / 1000))
+    {inMission} = @state
+    changeFlag = false
+    if @missionCountdown > 0
+      @maxCountdown = @missionCountdown
       @timeDelta = 0
-    @cond = tmp.cond
+      if not inMission
+        changeFlag = true
+      @cond = tmp.cond
+    else
+      @maxCountdown = tmp.countdown.reduce (a, b) -> Math.max a, b    # new countdown
+      @countdown = tmp.countdown
+      minCond = tmp.cond.reduce (a, b) -> Math.min a, b               # new cond
+      thisMinCond = @cond.reduce (a, b) -> Math.min a, b              # current cond
+      if thisMinCond isnt minCond
+        @timeDelta = 0
+      @cond = tmp.cond
+      if inMission
+        changeFlag = true
+    if changeFlag
+      @setState
+        inMission: not inMission
     if @maxCountdown > 0
       @interval = setInterval @updateCountdown, 1000 if !@interval?
     else
@@ -173,11 +249,11 @@ TopAlert = React.createClass
       if @timeDelta % (3 * 60) == 0
         cond = @cond.map (c) => if c < 49 then Math.min(49, c + @timeDelta / 60) else c
         @props.updateCond(cond)
-      if @maxCountdown is @timeDelta and not @inBattle and window._decks[@props.deckIndex].api_mission[0] <= 0
+      if @maxCountdown is @timeDelta and not @inBattle and not @state.inMission and window._decks[@props.deckIndex].api_mission[0] <= 0
         notify "#{@props.deckName} 疲劳回复完成",
           type: 'morale'
           icon: join(ROOT, 'assets', 'img', 'operation', 'sortie.png')
-    if flag or @inBattle
+    if flag or (@inBattle and not @state.inMission)
       @interval = clearInterval @interval
       @clearCountdown()
   clearCountdown: ->
@@ -185,6 +261,22 @@ TopAlert = React.createClass
       $("#ShipView #deck-condition-countdown-#{@props.deckIndex}-#{@componentId}").innerHTML = resolveTime(0)
   componentWillMount: ->
     @componentId = Math.ceil(Date.now() * Math.random())
+    if @props.deckIndex != 0
+      deck = window._decks[@props.deckIndex]
+      @missionCountdown = -1
+      switch deck.api_mission[0]
+        # In port
+        when 0
+          @missionCountdown = -1
+          @completeTime = -1
+        # In mission
+        when 1
+          @completeTime = deck.api_mission[2]
+          @missionCountdown = Math.floor((deck.api_mission[2] - new Date()) / 1000)
+        # Just come back
+        when 2
+          @completeTime = 0
+          @missionCountdown = 0
     @setAlert()
   componentDidMount: ->
     @isMount = true
@@ -203,7 +295,7 @@ TopAlert = React.createClass
             <span>索敌:&nbsp;{@messages[3]}</span>
           </OverlayTrigger>
         </span>
-        <span style={flex: 1.5}>回复:&nbsp;<span id={"deck-condition-countdown-#{@props.deckIndex}-#{@componentId}"}>{resolveTime @maxCountdown}</span></span>
+        <span style={flex: 1.5}>{@getState()}:&nbsp;<span id={"deck-condition-countdown-#{@props.deckIndex}-#{@componentId}"}>{resolveTime @maxCountdown}</span></span>
       </div>
     </Alert>
 
@@ -255,53 +347,60 @@ PaneBody = React.createClass
           ship = _ships[shipId]
           shipInfo = $ships[ship.api_ship_id]
           shipType = $shipTypes[shipInfo.api_stype].api_name
+          status = getStatusArray shipId
           [
-            <div className="shipItem">
-              <div className="shipInfo">
-                <div style={display: "flex", flexDirection: "column"}>
-                  <div className="shipBasic">
-                    <span className="shipLv">
-                      Lv. {ship.api_lv}
-                    </span>
-                    <span className='shipType'>
-                      {shipType}
-                    </span>
-                  </div>
-                  <div className="shipName">
-                    {shipInfo.api_name}
-                  </div>
-                  <CondBar
-                    j={j}
-                    deck={@props.deck}
-                    deckIndex = {@props.deckIndex}
-                    cond = {@state.cond}
-                    />
-                </div>
+            <div className="shipTile">
+              <div className="statusLabel">
+                <StatusLabel
+                  status={status}/>
               </div>
-              <div className="shipHp" >
-                <div style={flex: 1, display: "flex"}>
-                  <span style={flex: 2}>{ship.api_nowhp} / {ship.api_maxhp}</span>
-                </div>
-                <ProgressBar style={flex: 1} bsStyle={getHpStyle ship.api_nowhp / ship.api_maxhp * 100}
-                           now={ship.api_nowhp / ship.api_maxhp * 100} />
-                <OverlayTrigger placement='right' overlay={<Tooltip>Next. {ship.api_exp[1]}</Tooltip>}>
-                  <div className="expProgress">
-                    <ProgressBar bsStyle="info" now={ship.api_exp[2]} />
+              <div className="shipItem">
+                <div className="shipInfo" style={getStatusStyle status}>
+                  <div style={display: "flex", flexDirection: "column"}>
+                    <div className="shipBasic">
+                      <span className="shipLv">
+                        Lv. {ship.api_lv}
+                      </span>
+                      <span className='shipType'>
+                        {shipType}
+                      </span>
+                    </div>
+                    <div className="shipName">
+                      {shipInfo.api_name}
+                    </div>
+                    <CondBar
+                      j={j}
+                      deck={@props.deck}
+                      deckIndex = {@props.deckIndex}
+                      cond = {@state.cond}
+                      />
                   </div>
-                </OverlayTrigger>
-              </div>
-              <span className="shipFB" >
-                <span style={flex: 1}>
-                  <ProgressBar bsStyle={getMaterialStyle ship.api_fuel / shipInfo.api_fuel_max * 100}
-                               now={ship.api_fuel / shipInfo.api_fuel_max * 100} />
+                </div>
+                <div className="shipHp" style={getStatusStyle status}>
+                  <div style={flex: 1, display: "flex"}>
+                    <span style={flex: 2}>{ship.api_nowhp} / {ship.api_maxhp}</span>
+                  </div>
+                  <ProgressBar style={flex: 1} bsStyle={getHpStyle ship.api_nowhp / ship.api_maxhp * 100}
+                             now={ship.api_nowhp / ship.api_maxhp * 100} />
+                  <OverlayTrigger placement='right' overlay={<Tooltip>Next. {ship.api_exp[1]}</Tooltip>}>
+                    <div className="expProgress">
+                      <ProgressBar bsStyle="info" now={ship.api_exp[2]} />
+                    </div>
+                  </OverlayTrigger>
+                </div>
+                <span className="shipFB" style={getStatusStyle status}>
+                  <span style={flex: 1}>
+                    <ProgressBar bsStyle={getMaterialStyle ship.api_fuel / shipInfo.api_fuel_max * 100}
+                                 now={ship.api_fuel / shipInfo.api_fuel_max * 100} />
+                  </span>
+                  <span style={flex: 1}>
+                    <ProgressBar bsStyle={getMaterialStyle ship.api_bull / shipInfo.api_bull_max * 100}
+                                 now={ship.api_bull / shipInfo.api_bull_max * 100} />
+                  </span>
                 </span>
-                <span style={flex: 1}>
-                  <ProgressBar bsStyle={getMaterialStyle ship.api_bull / shipInfo.api_bull_max * 100}
-                               now={ship.api_bull / shipInfo.api_bull_max * 100} />
-                </span>
-              </span>
-              <div className="shipSlot" >
-                <Slotitems data={ship.api_slot} onslot={ship.api_onslot} maxeq={ship.api_maxeq} />
+                <div className="shipSlot" style={getStatusStyle status}>
+                  <Slotitems data={ship.api_slot} onslot={ship.api_onslot} maxeq={ship.api_maxeq} />
+                </div>
               </div>
             </div>
           ]

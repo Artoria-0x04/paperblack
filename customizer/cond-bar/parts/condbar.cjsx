@@ -27,7 +27,7 @@ CondBar = React.createClass
       continue if shipId == -1
       $("#ShipView #condProgress-#{@props.deckIndex}-#{j}.progress-bar").style.backgroundColor = getCondStyle @props.cond[j]
   render: ->
-    <span style={display: "flex"}>
+    <span className="condBar" style={display: "flex"}>
       <span className="condText" >{@props.cond[@props.j]}</span>
       <OverlayTrigger placement='right' overlay={<Tooltip>Cond. {@props.cond[@props.j]}</Tooltip>} >
         <ProgressBar key={2} className="condProgress" id="condProgress-#{@props.deckIndex}-#{@props.j}" now={@props.cond[@props.j]} />

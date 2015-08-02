@@ -29,21 +29,39 @@
 #ShipView .shipDetails {
   margin-bottom: 1px;
 }
+#ShipView .shipDetails .shipTile {
+  margin: 4px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#ShipView .shipDetails .statusLabel {
+  display: inline-block;
+  width: 20px;
+  margin-right: 5px;
+  flex: none;
+  text-align: center;
+  vertical-align: middle;
+}
 #ShipView .shipDetails .shipItem {
-  margin-top: 8px;
+  flex: 1;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
   white-space: nowrap;
+  margin-right: 15px;
 }
 #ShipView .shipDetails .shipItem .progress {
   margin-bottom: 5px;
 }
 #ShipView .shipDetails .shipItem .shipInfo {
-  flex: 2;
+  flex: none;
+  width: 6em;
+  min-width: 4em;
   margin-left: 4px;
   margin-right: 4px;
 }
+
 #ShipView .shipDetails .shipItem .shipInfo .shipBasic {
   flex; 1;
   font-size: 80%;
@@ -65,7 +83,6 @@
 #ShipView .shipDetails .shipItem .shipInfo .expProgess {
   flex: 1;
 }
-
 #ShipView .shipDetails .shipItem .shipCond {
   flex: none;
   margin-left: -6px;
@@ -81,6 +98,9 @@
   vertical-align: middle;
   margin-left: 4px;
 }
+#ShipView .shipDetails .condBar {
+  margin-top: 3px;
+}
 #ShipView .shipDetails .condText {
   font-size: 60%;
   margin-right: 4px;
@@ -88,7 +108,7 @@
   line-height: 1;
 }
 #ShipView .shipDetails .condProgress {
-  width: 60%;
+  width: 100%;
 }
 #ShipView .shipDetails .condProgress .progress-bar {
 
@@ -132,7 +152,7 @@
 }
 
 #ShipView .shipDetails .shipItem .shipFB{
-  flex: auto;
+  flex: 1;
   display: flex;
   flex-direction: column;
   margin-left: 4px;
