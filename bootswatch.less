@@ -70,6 +70,7 @@
   text-transform: uppercase;
   border-right: none;
   border-bottom: none;
+  border-radius: 3px;
   .box-shadow(1px 1px 2px rgba(0,0,0,.3));
   .transition(all 0.2s);
 
@@ -94,6 +95,7 @@
   .btn-group + .btn,
   .btn-group + .btn-group {
     margin-left: 0;
+    border-radius: 0;
   }
 
   &-vertical {
@@ -102,6 +104,7 @@
     > .btn-group + .btn,
     > .btn-group + .btn-group {
       margin-top: 0;
+      border-radius: 0;
     }
   }
 }
@@ -282,7 +285,12 @@ select.form-control {
   color: text-color;
   height:auto;
   line-height: 1.5;
-
+  > option,
+  > optgroup {
+    background: @grey-900;
+    color: @text-color;
+    border: 0;
+  }
   &::-ms-expand {
     display: none;
   }
@@ -652,7 +660,7 @@ input[type="checkbox"],
 .panel {
   margin-bottom: 15px;
   border: none;
-  border-radius: 1px;
+  border-radius: 3px;
   .box-shadow(1px 2px 3px rgba(0,0,0,.3));
 
   &-heading {

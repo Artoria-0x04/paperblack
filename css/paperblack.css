@@ -3588,7 +3588,7 @@ tbody.collapse.in {
   font-size: 14px;
   text-align: left;
   background-color: #424242;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border: 1px solid #212121;
   border-radius: 0px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -3623,7 +3623,7 @@ tbody.collapse.in {
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  color: #ffffff;
+  color: #000000;
   text-decoration: none;
   outline: 0;
   background-color: rgba(0, 0, 0, 0.1);
@@ -6963,6 +6963,7 @@ button.close {
   text-transform: uppercase;
   border-right: none;
   border-bottom: none;
+  border-radius: 3px;
   -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   -webkit-transition: all 0.2s;
@@ -6986,12 +6987,14 @@ button.close {
 .btn-group .btn-group + .btn,
 .btn-group .btn-group + .btn-group {
   margin-left: 0;
+  border-radius: 0;
 }
 .btn-group-vertical > .btn + .btn,
 .btn-group-vertical > .btn + .btn-group,
 .btn-group-vertical > .btn-group + .btn,
 .btn-group-vertical > .btn-group + .btn-group {
   margin-top: 0;
+  border-radius: 0;
 }
 body {
   -webkit-font-smoothing: antialiased;
@@ -7206,6 +7209,14 @@ select.form-control {
   color: text-color;
   height: auto;
   line-height: 1.5;
+}
+select > option,
+select.form-control > option,
+select > optgroup,
+select.form-control > optgroup {
+  background: #212121;
+  color: #ffffff;
+  border: 0;
 }
 select::-ms-expand,
 select.form-control::-ms-expand {
@@ -7568,7 +7579,7 @@ input[type="checkbox"]:disabled:checked:after,
 .panel {
   margin-bottom: 15px;
   border: none;
-  border-radius: 1px;
+  border-radius: 3px;
   -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
 }
