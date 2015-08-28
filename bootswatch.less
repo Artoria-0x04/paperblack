@@ -47,11 +47,12 @@
     &:hover,
     &:active:hover,
     &:focus {
-      background-color: lighten(@bg, 6%);
+      background-color: darken(@bg, 6%);
     }
 
-    &:active {
-      background-color: lighten(@bg, 6%);
+    &:active,
+    &.active, {
+      background-color: darken(@bg, 6%);
       #gradient > .radial(lighten(@bg, 6%) 10%, @bg 11%);
       background-size: 1000%;
       .box-shadow(1px 2px 3px rgba(0,0,0,.3));
@@ -70,7 +71,7 @@
   text-transform: uppercase;
   border-right: none;
   border-bottom: none;
-  border-radius: 3px;
+  // border-radius: 3px;
   .box-shadow(1px 1px 2px rgba(0,0,0,.3));
   .transition(all 0.2s);
 
@@ -95,7 +96,7 @@
   .btn-group + .btn,
   .btn-group + .btn-group {
     margin-left: 0;
-    border-radius: 0;
+    // border-radius: 3px;
   }
 
   &-vertical {
@@ -104,7 +105,7 @@
     > .btn-group + .btn,
     > .btn-group + .btn-group {
       margin-top: 0;
-      border-radius: 0;
+      // border-radius: 3px;
     }
   }
 }
@@ -171,14 +172,6 @@ a {
 
 // Forms ======================================================================
 
-label {
-  font-weight: normal;
-}
-.label {
-  display: inline-block;
-  line-height: 1;
-  padding: 4px 4px;
-}
 
 textarea,
 textarea.form-control,
@@ -694,4 +687,16 @@ input[type="checkbox"],
 //Patch
 .form-group-sm select.form-control{
   line-height: 1;
+}
+
+// labels
+
+label {
+  font-weight: normal;
+}
+.label {
+  display: inline-block;
+  line-height: 1;
+  font-size: 9px;
+  padding: 4px;
 }
