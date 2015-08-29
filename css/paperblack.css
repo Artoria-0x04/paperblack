@@ -6371,7 +6371,7 @@ button.close {
   font-size: 20px;
   color: #ffffff;
   text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .carousel-control.left {
   background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.0001) 100%);
@@ -6471,7 +6471,7 @@ button.close {
   padding-bottom: 20px;
   color: #ffffff;
   text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .carousel-caption .btn {
   text-shadow: none;
@@ -6798,8 +6798,8 @@ button.close {
 }
 .navbar {
   border: none;
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   margin-bottom: 0;
 }
 .navbar-brand {
@@ -6841,19 +6841,19 @@ button.close {
 .btn-default:hover,
 .btn-default:active:hover,
 .btn-default:focus {
-  background-color: #525252;
+  background-color: #3b3b3b;
 }
 .btn-default:active,
 .btn-default.active {
-  background-color: #525252;
-  background-image: -webkit-radial-gradient(circle, #707070 10%, #616161 11%);
-  background-image: -o-radial-gradient(circle, #707070 10%, #616161 11%);
-  background-image: radial-gradient(circle, #707070 10%, #616161 11%);
+  background-color: #3b3b3b;
+  background-image: -webkit-radial-gradient(circle, #3b3b3b 10%, #616161 11%);
+  background-image: -o-radial-gradient(circle, #3b3b3b 10%, #616161 11%);
+  background-image: radial-gradient(circle, #3b3b3b 10%, #616161 11%);
   background-repeat: no-repeat;
   -webkit-background-size: 1000% 1000%;
           background-size: 1000%;
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .btn-primary {
   -webkit-background-size: 200% 200%;
@@ -6863,19 +6863,19 @@ button.close {
 .btn-primary:hover,
 .btn-primary:active:hover,
 .btn-primary:focus {
-  background-color: #51b255;
+  background-color: #419345;
 }
 .btn-primary:active,
 .btn-primary.active {
-  background-color: #51b255;
-  background-image: -webkit-radial-gradient(circle, #7bc47f 10%, #66bb6a 11%);
-  background-image: -o-radial-gradient(circle, #7bc47f 10%, #66bb6a 11%);
-  background-image: radial-gradient(circle, #7bc47f 10%, #66bb6a 11%);
+  background-color: #419345;
+  background-image: -webkit-radial-gradient(circle, #419345 10%, #66bb6a 11%);
+  background-image: -o-radial-gradient(circle, #419345 10%, #66bb6a 11%);
+  background-image: radial-gradient(circle, #419345 10%, #66bb6a 11%);
   background-repeat: no-repeat;
   -webkit-background-size: 1000% 1000%;
           background-size: 1000%;
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .btn-success {
   -webkit-background-size: 200% 200%;
@@ -6885,19 +6885,19 @@ button.close {
 .btn-success:hover,
 .btn-success:active:hover,
 .btn-success:focus {
-  background-color: #7cb33b;
+  background-color: #649130;
 }
 .btn-success:active,
 .btn-success.active {
-  background-color: #7cb33b;
-  background-image: -webkit-radial-gradient(circle, #9acb61 10%, #8bc34a 11%);
-  background-image: -o-radial-gradient(circle, #9acb61 10%, #8bc34a 11%);
-  background-image: radial-gradient(circle, #9acb61 10%, #8bc34a 11%);
+  background-color: #649130;
+  background-image: -webkit-radial-gradient(circle, #649130 10%, #8bc34a 11%);
+  background-image: -o-radial-gradient(circle, #649130 10%, #8bc34a 11%);
+  background-image: radial-gradient(circle, #649130 10%, #8bc34a 11%);
   background-repeat: no-repeat;
   -webkit-background-size: 1000% 1000%;
           background-size: 1000%;
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .btn-info {
   -webkit-background-size: 200% 200%;
@@ -6907,19 +6907,19 @@ button.close {
 .btn-info:hover,
 .btn-info:active:hover,
 .btn-info:focus {
-  background-color: #2597f3;
+  background-color: #0c80df;
 }
 .btn-info:active,
 .btn-info.active {
-  background-color: #2597f3;
-  background-image: -webkit-radial-gradient(circle, #5fb3f7 10%, #42a5f5 11%);
-  background-image: -o-radial-gradient(circle, #5fb3f7 10%, #42a5f5 11%);
-  background-image: radial-gradient(circle, #5fb3f7 10%, #42a5f5 11%);
+  background-color: #0c80df;
+  background-image: -webkit-radial-gradient(circle, #0c80df 10%, #42a5f5 11%);
+  background-image: -o-radial-gradient(circle, #0c80df 10%, #42a5f5 11%);
+  background-image: radial-gradient(circle, #0c80df 10%, #42a5f5 11%);
   background-repeat: no-repeat;
   -webkit-background-size: 1000% 1000%;
           background-size: 1000%;
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .btn-warning {
   -webkit-background-size: 200% 200%;
@@ -6929,19 +6929,19 @@ button.close {
 .btn-warning:hover,
 .btn-warning:active:hover,
 .btn-warning:focus {
-  background-color: #dc7b00;
+  background-color: #af6100;
 }
 .btn-warning:active,
 .btn-warning.active {
-  background-color: #dc7b00;
-  background-image: -webkit-radial-gradient(circle, #ff9a1b 10%, #fb8c00 11%);
-  background-image: -o-radial-gradient(circle, #ff9a1b 10%, #fb8c00 11%);
-  background-image: radial-gradient(circle, #ff9a1b 10%, #fb8c00 11%);
+  background-color: #af6100;
+  background-image: -webkit-radial-gradient(circle, #af6100 10%, #fb8c00 11%);
+  background-image: -o-radial-gradient(circle, #af6100 10%, #fb8c00 11%);
+  background-image: radial-gradient(circle, #af6100 10%, #fb8c00 11%);
   background-repeat: no-repeat;
   -webkit-background-size: 1000% 1000%;
           background-size: 1000%;
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .btn-danger {
   -webkit-background-size: 200% 200%;
@@ -6951,26 +6951,26 @@ button.close {
 .btn-danger:hover,
 .btn-danger:active:hover,
 .btn-danger:focus {
-  background-color: #df211d;
+  background-color: #b61b17;
 }
 .btn-danger:active,
 .btn-danger.active {
-  background-color: #df211d;
-  background-image: -webkit-radial-gradient(circle, #e85450 10%, #e53935 11%);
-  background-image: -o-radial-gradient(circle, #e85450 10%, #e53935 11%);
-  background-image: radial-gradient(circle, #e85450 10%, #e53935 11%);
+  background-color: #b61b17;
+  background-image: -webkit-radial-gradient(circle, #b61b17 10%, #e53935 11%);
+  background-image: -o-radial-gradient(circle, #b61b17 10%, #e53935 11%);
+  background-image: radial-gradient(circle, #b61b17 10%, #e53935 11%);
   background-repeat: no-repeat;
   -webkit-background-size: 1000% 1000%;
           background-size: 1000%;
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .btn {
   text-transform: uppercase;
   border-right: none;
   border-bottom: none;
-  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   -webkit-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
@@ -6998,6 +6998,10 @@ button.close {
 .btn-group-vertical > .btn-group + .btn,
 .btn-group-vertical > .btn-group + .btn-group {
   margin-top: 0;
+}
+.btn-group > .btn:first-child {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 body {
   -webkit-font-smoothing: antialiased;
@@ -7471,16 +7475,16 @@ input[type="checkbox"]:disabled:checked:after,
 .dropdown-menu {
   margin-top: 0px;
   border: none;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .dropdown-menu li > a {
   padding-top: 8px;
   padding-bottom: 8px;
 }
 .alert {
-  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
-          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   margin-bottom: 0px;
   border: none;
   color: #fff;
@@ -7556,8 +7560,8 @@ input[type="checkbox"]:disabled:checked:after,
   opacity: 1;
 }
 .list-group {
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .list-group-item {
   padding: 15px;
@@ -7568,15 +7572,15 @@ input[type="checkbox"]:disabled:checked:after,
 }
 .well {
   border-radius: 0;
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .panel {
   margin-bottom: 15px;
   border: none;
   border-radius: 3px;
-  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 .panel-heading {
   border-bottom: none;
@@ -7586,8 +7590,8 @@ input[type="checkbox"]:disabled:checked:after,
 }
 .popover {
   border: none;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3);
 }
 .carousel-caption h1,
 .carousel-caption h2,
@@ -7598,8 +7602,8 @@ input[type="checkbox"]:disabled:checked:after,
   color: inherit;
 }
 .pagination {
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0px 3px rgba(0, 0, 0, 0.3);
 }
 .form-group-sm select.form-control {
   line-height: 1;

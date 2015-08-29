@@ -6,9 +6,11 @@
 
 // Navbar =====================================================================
 
+
+
 .navbar {
   border: none;
-  .box-shadow(0 1px 2px rgba(0,0,0,.3));
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
   margin-bottom: 0;
   &-brand {
     padding-left: 1em;
@@ -47,15 +49,15 @@
     &:hover,
     &:active:hover,
     &:focus {
-      background-color: darken(@bg, 6%);
+      background-color: darken(@bg, 15%);
     }
 
     &:active,
     &.active, {
-      background-color: darken(@bg, 6%);
-      #gradient > .radial(lighten(@bg, 6%) 10%, @bg 11%);
+      background-color: darken(@bg, 15%);
+      #gradient > .radial(darken(@bg, 15%) 10%, @bg 11%);
       background-size: 1000%;
-      .box-shadow(1px 2px 3px rgba(0,0,0,.3));
+      .box-shadow(1px 1px 5px rgba(0,0,0,.3));
     }
   }
 }
@@ -72,7 +74,7 @@
   border-right: none;
   border-bottom: none;
   // border-radius: 3px;
-  .box-shadow(1px 1px 2px rgba(0,0,0,.3));
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
   .transition(all 0.2s);
 
   &-link {
@@ -107,6 +109,9 @@
       margin-top: 0;
       // border-radius: 3px;
     }
+  }
+  > .btn:first-child{
+    box-shadow: none;
   }
 }
 
@@ -521,7 +526,7 @@ input[type="checkbox"],
 .dropdown-menu {
   margin-top: 0px;
   border: none;
-  .box-shadow(0 1px 3px rgba(0,0,0,.3));
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
 
   li > a {
     padding-top: 8px;
@@ -532,7 +537,7 @@ input[type="checkbox"],
 // Indicators =================================================================
 
 .alert {
-  box-shadow: 2px 2px 2px rgba(0,0,0,.4);
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
   margin-bottom: 0px;
   border: none;
   color: #fff;
@@ -634,7 +639,7 @@ input[type="checkbox"],
 }
 
 .list-group {
-  .box-shadow(1px 2px 3px rgba(0,0,0,.3));
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
   &-item {
     padding: 15px;
     border: none;
@@ -647,14 +652,14 @@ input[type="checkbox"],
 
 .well {
   border-radius: 0;
-  .box-shadow(1px 2px 3px rgba(0,0,0,.3));
+  .box-shadow(inset 1px 1px 5px rgba(0,0,0,.3));
 }
 
 .panel {
   margin-bottom: 15px;
   border: none;
   border-radius: 3px;
-  .box-shadow(1px 2px 3px rgba(0,0,0,.3));
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
 
   &-heading {
     border-bottom: none;
@@ -667,7 +672,7 @@ input[type="checkbox"],
 
 .popover {
   border: none;
-  .box-shadow(0 1px 3px rgba(0,0,0,.3));
+  .box-shadow(0 0px 3px rgba(0,0,0,.3));
 }
 
 .carousel {
@@ -681,7 +686,7 @@ input[type="checkbox"],
 // Paginations
 
 .pagination {
-  .box-shadow(0 1px 3px rgba(0,0,0,.3));
+  .box-shadow(0 0px 3px rgba(0,0,0,.3));
 }
 
 //Patch
