@@ -41,7 +41,7 @@
 
 // Buttons ====================================================================
 
-#btn(@class,@bg) {
+#btn(@class,@bg,@bg-active) {
   .btn-@{class} {
     background-size: 200%;
     background-position: 50%;
@@ -49,25 +49,24 @@
     &:hover,
     &:active:hover,
     &:focus {
-      background-color: darken(@bg, 15%);
+      background-color: @bg-active;
     }
 
     &:active,
     &.active, {
-      background-color: darken(@bg, 15%);
-      #gradient > .radial(darken(@bg, 15%) 10%, @bg 11%);
+      background-color: @bg-active;
+      #gradient > .radial(@bg-active 10%, @bg 12%);
       background-size: 1000%;
       .box-shadow(1px 1px 5px rgba(0,0,0,.3));
     }
   }
 }
-
-#btn(default,@btn-default-bg);
-#btn(primary,@btn-primary-bg);
-#btn(success,@btn-success-bg);
-#btn(info,@btn-info-bg);
-#btn(warning,@btn-warning-bg);
-#btn(danger,@btn-danger-bg);
+#btn(default, @btn-default-bg, @btn-default-bg-active);
+#btn(primary, @btn-primary-bg, @btn-primary-bg-active);
+#btn(success, @btn-success-bg, @btn-success-bg-active);
+#btn(info, @btn-info-bg, @btn-info-bg-active);
+#btn(warning, @btn-warning-bg, @btn-warning-bg-active);
+#btn(danger, @btn-danger-bg, @btn-danger-bg-active);
 
 .btn {
   text-transform: uppercase;
@@ -111,7 +110,7 @@
     }
   }
   > .btn:first-child{
-    box-shadow: none;
+    // box-shadow: -1px 1px 5px rgba(0,0,0,.3);
   }
 }
 
