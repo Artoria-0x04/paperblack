@@ -6823,13 +6823,13 @@ button.close {
 .navbar-inverse .form-control::-webkit-input-placeholder {
   color: #d0ead1;
 }
-.navbar-inverse .form-control[type=text],
-.navbar-inverse .form-control[type=password] {
+.navbar-inverse .form-control[type="text"],
+.navbar-inverse .form-control[type="password"] {
   -webkit-box-shadow: inset 0 -1px 0 #d0ead1;
   box-shadow: inset 0 -1px 0 #d0ead1;
 }
-.navbar-inverse .form-control[type=text]:focus,
-.navbar-inverse .form-control[type=password]:focus {
+.navbar-inverse .form-control[type="text"]:focus,
+.navbar-inverse .form-control[type="password"]:focus {
   -webkit-box-shadow: inset 0 -2px 0 #ffffff;
   box-shadow: inset 0 -2px 0 #ffffff;
 }
@@ -7057,14 +7057,14 @@ label {
 textarea,
 textarea.form-control,
 input.form-control,
-input[type=text],
-input[type=password],
-input[type=email],
-input[type=number],
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
 [type=text].form-control,
-[type=password].form-control,
-[type=email].form-control,
-[type=tel].form-control,
+[type="password"].form-control,
+[type="email"].form-control,
+[type="tel"].form-control,
 [contenteditable].form-control {
   padding: 0;
   border: none;
@@ -7077,14 +7077,14 @@ input[type=number],
 textarea:focus,
 textarea.form-control:focus,
 input.form-control:focus,
-input[type=text]:focus,
-input[type=password]:focus,
-input[type=email]:focus,
-input[type=number]:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
 [type=text].form-control:focus,
-[type=password].form-control:focus,
-[type=email].form-control:focus,
-[type=tel].form-control:focus,
+[type="password"].form-control:focus,
+[type="email"].form-control:focus,
+[type="tel"].form-control:focus,
 [contenteditable].form-control:focus {
   -webkit-box-shadow: inset 0 -2px 0 #66bb6a;
   box-shadow: inset 0 -2px 0 #66bb6a;
@@ -7092,26 +7092,26 @@ input[type=number]:focus,
 textarea[disabled],
 textarea.form-control[disabled],
 input.form-control[disabled],
-input[type=text][disabled],
-input[type=password][disabled],
-input[type=email][disabled],
-input[type=number][disabled],
+input[type="text"][disabled],
+input[type="password"][disabled],
+input[type="email"][disabled],
+input[type="number"][disabled],
 [type=text].form-control[disabled],
-[type=password].form-control[disabled],
-[type=email].form-control[disabled],
-[type=tel].form-control[disabled],
+[type="password"].form-control[disabled],
+[type="email"].form-control[disabled],
+[type="tel"].form-control[disabled],
 [contenteditable].form-control[disabled],
 textarea[readonly],
 textarea.form-control[readonly],
 input.form-control[readonly],
-input[type=text][readonly],
-input[type=password][readonly],
-input[type=email][readonly],
-input[type=number][readonly],
+input[type="text"][readonly],
+input[type="password"][readonly],
+input[type="email"][readonly],
+input[type="number"][readonly],
 [type=text].form-control[readonly],
-[type=password].form-control[readonly],
-[type=email].form-control[readonly],
-[type=tel].form-control[readonly],
+[type="password"].form-control[readonly],
+[type="email"].form-control[readonly],
+[type="tel"].form-control[readonly],
 [contenteditable].form-control[readonly] {
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -7120,32 +7120,32 @@ input[type=number][readonly],
 textarea.input-sm,
 textarea.form-control.input-sm,
 input.form-control.input-sm,
-input[type=text].input-sm,
-input[type=password].input-sm,
-input[type=email].input-sm,
-input[type=number].input-sm,
+input[type="text"].input-sm,
+input[type="password"].input-sm,
+input[type="email"].input-sm,
+input[type="number"].input-sm,
 [type=text].form-control.input-sm,
-[type=password].form-control.input-sm,
-[type=email].form-control.input-sm,
-[type=tel].form-control.input-sm,
+[type="password"].form-control.input-sm,
+[type="email"].form-control.input-sm,
+[type="tel"].form-control.input-sm,
 [contenteditable].form-control.input-sm {
   font-size: 12px;
 }
 textarea.input-lg,
 textarea.form-control.input-lg,
 input.form-control.input-lg,
-input[type=text].input-lg,
-input[type=password].input-lg,
-input[type=email].input-lg,
-input[type=number].input-lg,
+input[type="text"].input-lg,
+input[type="password"].input-lg,
+input[type="email"].input-lg,
+input[type="number"].input-lg,
 [type=text].form-control.input-lg,
-[type=password].form-control.input-lg,
-[type=email].form-control.input-lg,
-[type=tel].form-control.input-lg,
+[type="password"].form-control.input-lg,
+[type="email"].form-control.input-lg,
+[type="tel"].form-control.input-lg,
 [contenteditable].form-control.input-lg {
   font-size: 18px;
 }
-input[type=range] {
+input[type="range"] {
   -webkit-appearance: none;
   border-radius: 0;
   outline: none;
@@ -7153,14 +7153,14 @@ input[type=range] {
           box-shadow: none;
   border: none;
 }
-input[type=range]:focus,
-input[type=range]:active,
-input[type=range]:hover {
+input[type="range"]:focus,
+input[type="range"]:active,
+input[type="range"]:hover {
   -webkit-box-shadow: none;
           box-shadow: none;
   border: none;
 }
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 16px;
   height: 16px;
@@ -7171,13 +7171,13 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-transition: background 0.15s ease-in-out;
   transition: background 0.15s ease-in-out;
 }
-input[type=range]::-webkit-slider-thumb:hover {
+input[type="range"]::-webkit-slider-thumb:hover {
   background: #9bd39e;
 }
-input[type=range]:active::-webkit-slider-thumb {
+input[type="range"]:active::-webkit-slider-thumb {
   background: #9bd39e;
 }
-input[type=range]::-webkit-slider-runnable-track {
+input[type="range"]::-webkit-slider-runnable-track {
   width: 100%;
   height: 5px;
   border-radius: 0;
@@ -7389,23 +7389,23 @@ input[type="checkbox"]:disabled:checked:after,
   background-color: #e0e0e0;
   border-color: transparent;
 }
-.has-warning input:not([type=checkbox]),
+.has-warning input:not([type="checkbox"]),
 .has-warning .form-control,
-.has-warning input:not([type=checkbox]):focus,
+.has-warning input:not([type="checkbox"]):focus,
 .has-warning .form-control:focus {
   -webkit-box-shadow: inset 0 -2px 0 #fb8c00;
   box-shadow: inset 0 -2px 0 #fb8c00;
 }
-.has-error input:not([type=checkbox]),
+.has-error input:not([type="checkbox"]),
 .has-error .form-control,
-.has-error input:not([type=checkbox]):focus,
+.has-error input:not([type="checkbox"]):focus,
 .has-error .form-control:focus {
   -webkit-box-shadow: inset 0 -2px 0 #e53935;
   box-shadow: inset 0 -2px 0 #e53935;
 }
-.has-success input:not([type=checkbox]),
+.has-success input:not([type="checkbox"]),
 .has-success .form-control,
-.has-success input:not([type=checkbox]):focus,
+.has-success input:not([type="checkbox"]):focus,
 .has-success .form-control:focus {
   -webkit-box-shadow: inset 0 -2px 0 #8bc34a;
   box-shadow: inset 0 -2px 0 #8bc34a;
