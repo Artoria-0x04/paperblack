@@ -6,9 +6,11 @@
 
 // Navbar =====================================================================
 
+
+
 .navbar {
   border: none;
-  .box-shadow(0 1px 2px rgba(0,0,0,.3));
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
   margin-bottom: 0;
   &-brand {
     padding-left: 1em;
@@ -39,7 +41,7 @@
 
 // Buttons ====================================================================
 
-#btn(@class,@bg) {
+#btn(@class,@bg,@bg-active) {
   .btn-@{class} {
     background-size: 200%;
     background-position: 50%;
@@ -47,30 +49,31 @@
     &:hover,
     &:active:hover,
     &:focus {
-      background-color: lighten(@bg, 6%);
+      background-color: @bg-active;
     }
 
-    &:active {
-      background-color: lighten(@bg, 6%);
-      #gradient > .radial(lighten(@bg, 6%) 10%, @bg 11%);
+    &:active,
+    &.active, {
+      background-color: @bg-active;
+      #gradient > .radial(@bg-active 10%, @bg 12%);
       background-size: 1000%;
-      .box-shadow(1px 2px 3px rgba(0,0,0,.3));
+      .box-shadow(1px 1px 5px rgba(0,0,0,.3));
     }
   }
 }
-
-#btn(default,@btn-default-bg);
-#btn(primary,@btn-primary-bg);
-#btn(success,@btn-success-bg);
-#btn(info,@btn-info-bg);
-#btn(warning,@btn-warning-bg);
-#btn(danger,@btn-danger-bg);
+#btn(default, @btn-default-bg, @btn-default-bg-active);
+#btn(primary, @btn-primary-bg, @btn-primary-bg-active);
+#btn(success, @btn-success-bg, @btn-success-bg-active);
+#btn(info, @btn-info-bg, @btn-info-bg-active);
+#btn(warning, @btn-warning-bg, @btn-warning-bg-active);
+#btn(danger, @btn-danger-bg, @btn-danger-bg-active);
 
 .btn {
   text-transform: uppercase;
   border-right: none;
   border-bottom: none;
-  .box-shadow(1px 1px 2px rgba(0,0,0,.3));
+  // border-radius: 3px;
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
   .transition(all 0.2s);
 
   &-link {
@@ -94,6 +97,7 @@
   .btn-group + .btn,
   .btn-group + .btn-group {
     margin-left: 0;
+    // border-radius: 3px;
   }
 
   &-vertical {
@@ -102,6 +106,7 @@
     > .btn-group + .btn,
     > .btn-group + .btn-group {
       margin-top: 0;
+      // border-radius: 3px;
     }
   }
 }
@@ -168,14 +173,6 @@ a {
 
 // Forms ======================================================================
 
-label {
-  font-weight: normal;
-}
-.label {
-  display: inline-block;
-  line-height: 1;
-  padding: 4px 4px;
-}
 
 textarea,
 textarea.form-control,
@@ -282,7 +279,12 @@ select.form-control {
   color: text-color;
   height:auto;
   line-height: 1.5;
-
+  > option,
+  > optgroup {
+    background: @grey-900;
+    color: @text-color;
+    border: 0;
+  }
   &::-ms-expand {
     display: none;
   }
@@ -520,7 +522,7 @@ input[type="checkbox"],
 .dropdown-menu {
   margin-top: 0px;
   border: none;
-  .box-shadow(0 1px 3px rgba(0,0,0,.3));
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
 
   li > a {
     padding-top: 8px;
@@ -531,6 +533,7 @@ input[type="checkbox"],
 // Indicators =================================================================
 
 .alert {
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
   margin-bottom: 0px;
   border: none;
   color: #fff;
@@ -632,7 +635,7 @@ input[type="checkbox"],
 }
 
 .list-group {
-  .box-shadow(1px 2px 3px rgba(0,0,0,.3));
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
   &-item {
     padding: 15px;
     border: none;
@@ -645,14 +648,14 @@ input[type="checkbox"],
 
 .well {
   border-radius: 0;
-  .box-shadow(1px 2px 3px rgba(0,0,0,.3));
+  .box-shadow(inset 1px 1px 5px rgba(0,0,0,.3));
 }
 
 .panel {
   margin-bottom: 15px;
   border: none;
-  border-radius: 1px;
-  .box-shadow(1px 2px 3px rgba(0,0,0,.3));
+  border-radius: 3px;
+  .box-shadow(1px 1px 5px rgba(0,0,0,.3));
 
   &-heading {
     border-bottom: none;
@@ -665,7 +668,7 @@ input[type="checkbox"],
 
 .popover {
   border: none;
-  .box-shadow(0 1px 3px rgba(0,0,0,.3));
+  .box-shadow(0 0px 3px rgba(0,0,0,.3));
 }
 
 .carousel {
@@ -679,10 +682,22 @@ input[type="checkbox"],
 // Paginations
 
 .pagination {
-  .box-shadow(0 1px 3px rgba(0,0,0,.3));
+  .box-shadow(0 0px 3px rgba(0,0,0,.3));
 }
 
 //Patch
 .form-group-sm select.form-control{
   line-height: 1;
+}
+
+// labels
+
+label {
+  font-weight: normal;
+}
+.label {
+  display: inline-block;
+  line-height: 1;
+  font-size: 9px;
+  padding: 4px;
 }

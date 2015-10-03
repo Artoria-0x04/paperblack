@@ -253,7 +253,7 @@ PaneBody = React.createClass
           shipInfo = $ships[ship.api_ship_id]
           shipType = $shipTypes[shipInfo.api_stype].api_name
           [
-            <div className="shipItem">
+            <div key={j} className="shipItem">
               <div className="shipInfo">
                 <div style={display: "flex", flexDirection: "column"}>
                   <div className="shipBasic">

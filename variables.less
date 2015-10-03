@@ -207,10 +207,10 @@
 @line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
 @line-height-small:         1;
 
-@border-radius-base:        0px;
-@border-radius-large:       0px;
-@border-radius-small:       0px;
-@border-radius-btn:         1px;
+@border-radius-base:        3px;
+@border-radius-large:       3px;
+@border-radius-small:       3px;
+@border-radius-btn:         3px;
 
 //** Global color for active items (e.g., navs or dropdowns).
 @component-active-color:    @text-color;
@@ -254,26 +254,32 @@
 
 @btn-default-color:              @text-color;
 @btn-default-bg:                 @grey-700;
+@btn-default-bg-active:          @grey-800;
 @btn-default-border:             transparent;
 
 @btn-primary-color:              #fff;
 @btn-primary-bg:                 @brand-primary;
+@btn-primary-bg-active:          darken(@brand-primary, 20%);
 @btn-primary-border:             transparent;
 
 @btn-success-color:              #fff;
 @btn-success-bg:                 @brand-success;
+@btn-success-bg-active:          darken(@brand-success, 20%);
 @btn-success-border:             transparent;
 
 @btn-info-color:                 #fff;
 @btn-info-bg:                    @brand-info;
+@btn-info-bg-active:             darken(@brand-info, 30%);
 @btn-info-border:                transparent;
 
 @btn-warning-color:              #fff;
 @btn-warning-bg:                 @brand-warning;
+@btn-warning-bg-active:          darken(@brand-warning, 20%);
 @btn-warning-border:             transparent;
 
 @btn-danger-color:               #fff;
 @btn-danger-bg:                  @brand-danger;
+@btn-danger-bg-active:           darken(@brand-danger, 20%);
 @btn-danger-border:              transparent;
 
 @btn-link-disabled-color:        @text-color-disabled;
@@ -308,7 +314,7 @@
 @input-border-radius-small:      @border-radius-small;
 
 //** Border color for inputs on focus
-@input-border-focus:             @blue-400;
+@input-border-focus:             transparent;
 
 //** Placeholder text color
 @input-color-placeholder:        @grey-500;
@@ -342,7 +348,7 @@
 //** Background for the dropdown menu.
 @dropdown-bg:                    @grey-800;
 //** Dropdown menu `border-color`.
-@dropdown-border:                rgba(0,0,0,.15);
+@dropdown-border:                @grey-900;
 //** Dropdown menu `border-color` **for IE8**.
 @dropdown-fallback-border:       @dropdown-border;
 //** Divider color for between dropdown items.
@@ -353,10 +359,10 @@
 //** Hover color for dropdown links.
 @dropdown-link-hover-color:      @text-color;
 //** Hover background for dropdown links.
-@dropdown-link-hover-bg:         fade(@grey-500, 40%);
+@dropdown-link-hover-bg:         @component-active-bg;
 
 //** Active dropdown menu item text color.
-@dropdown-link-active-color:     @component-active-color;
+@dropdown-link-active-color:     #000;
 //** Active dropdown menu item background color.
 @dropdown-link-active-bg:        @component-active-bg;
 
@@ -432,7 +438,7 @@
 //** Number of columns in the grid.
 @grid-columns:              12;
 //** Padding between columns. Gets divided in half for the left and right.
-@grid-gutter-width:         12px;  // compact layout
+@grid-gutter-width:         10px;  // compact layout
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 @grid-float-breakpoint:     @screen-sm-min;
@@ -473,7 +479,7 @@
 @navbar-collapse-max-height:       340px;
 
 @navbar-default-color:             @text-color;
-@navbar-default-bg:                darken(@grey-700, 5%);
+@navbar-default-bg:                darken(@grey-700, 7%);
 @navbar-default-border:            transparent;
 
 // Navbar links
@@ -481,7 +487,7 @@
 @navbar-default-link-hover-color:          @text-color;
 @navbar-default-link-hover-bg:             transparent;
 @navbar-default-link-active-color:         @text-color;
-@navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
+@navbar-default-link-active-bg:            darken(@navbar-default-bg, 9.5%);
 @navbar-default-link-disabled-color:       @text-color-disabled;
 @navbar-default-link-disabled-bg:          transparent;
 
@@ -547,7 +553,7 @@
 
 //== Pills
 @nav-pills-border-radius:                   0;
-@nav-pills-active-link-hover-bg:            @component-active-bg;
+@nav-pills-active-link-hover-bg:            @grey-600;
 @nav-pills-active-link-hover-color:         @component-active-color;
 
 
@@ -605,19 +611,19 @@
 //## Define colors for form feedback states and, by default, alerts.
 
 @state-success-text:             @brand-success;
-@state-success-bg:               #dff0d8;
+@state-success-bg:               @lightgreen-200;
 @state-success-border:           darken(spin(@state-success-bg, -10), 5%);
 
 @state-info-text:                @brand-info;
-@state-info-bg:                  #e1bee7;
+@state-info-bg:                  @blue-200;
 @state-info-border:              darken(spin(@state-info-bg, -10), 7%);
 
 @state-warning-text:             @brand-warning;
-@state-warning-bg:               #ffe0b2;
+@state-warning-bg:               @orange-200;
 @state-warning-border:           darken(spin(@state-warning-bg, -10), 5%);
 
 @state-danger-text:              @brand-danger;
-@state-danger-bg:                #f9bdbb;
+@state-danger-bg:                @red-100;
 @state-danger-border:            darken(spin(@state-danger-bg, -10), 5%);
 
 
@@ -826,23 +832,23 @@
 
 @panel-primary-text:          #fff;
 @panel-primary-border:        @brand-primary;
-@panel-primary-heading-bg:    @brand-primary;
+@panel-primary-heading-bg:    @grey-700;
 
 @panel-success-text:          #fff;
 @panel-success-border:        @state-success-border;
-@panel-success-heading-bg:    @brand-success;
+@panel-success-heading-bg:    @grey-700;
 
 @panel-info-text:             #fff;
 @panel-info-border:           @state-info-border;
-@panel-info-heading-bg:       @brand-info;
+@panel-info-heading-bg:       @grey-700;
 
 @panel-warning-text:          #fff;
 @panel-warning-border:        @state-warning-border;
-@panel-warning-heading-bg:    @brand-warning;
+@panel-warning-heading-bg:    @grey-700;
 
 @panel-danger-text:           #fff;
 @panel-danger-border:         @state-danger-border;
-@panel-danger-heading-bg:     @brand-danger;
+@panel-danger-heading-bg:     @grey-700;
 
 
 //== Thumbnails
@@ -911,7 +917,7 @@
 //
 //##
 
-@carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6);
+@carousel-text-shadow:                        1px 1px 5px rgba(0,0,0,.3);
 
 @carousel-control-color:                      #fff;
 @carousel-control-width:                      15%;
