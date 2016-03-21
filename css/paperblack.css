@@ -2,7 +2,7 @@
 /*!
  * bootswatch v3.3.5
  * Homepage: http://bootswatch.com
- * Copyright 2012-2015 Thomas Park
+ * Copyright 2012-2016 Thomas Park
  * Licensed under MIT
  * Based on Bootstrap
 */
@@ -7237,22 +7237,6 @@ select[multiple],
 select.form-control[multiple] {
   background: none;
 }
-.radio label,
-.radio-inline label,
-.checkbox label,
-.checkbox-inline label {
-  padding-left: 25px;
-}
-.radio input[type="radio"],
-.radio-inline input[type="radio"],
-.checkbox input[type="radio"],
-.checkbox-inline input[type="radio"],
-.radio input[type="checkbox"],
-.radio-inline input[type="checkbox"],
-.checkbox input[type="checkbox"],
-.checkbox-inline input[type="checkbox"] {
-  margin-left: -25px;
-}
 input[type="radio"],
 .radio input[type="radio"],
 .radio-inline input[type="radio"] {
@@ -7334,7 +7318,7 @@ input[type="checkbox"],
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
   position: relative;
-  vertical-align: -4px;
+  vertical-align: -2px;
   border: none;
   -webkit-appearance: none;
   appearance: none;
@@ -7350,8 +7334,8 @@ input[type="checkbox"]:after,
 .checkbox-inline input[type="checkbox"]:after {
   content: "";
   display: block;
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   margin-top: -2px;
   margin-right: 5px;
   border: 2px solid #424242;
@@ -7365,11 +7349,11 @@ input[type="checkbox"]:checked:before,
 .checkbox-inline input[type="checkbox"]:checked:before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 6px;
+  top: 0px;
+  left: 5px;
   display: table;
-  width: 6px;
-  height: 12px;
+  width: 4px;
+  height: 8px;
   border: 2px solid #fff;
   border-top-width: 0;
   border-left-width: 0;
